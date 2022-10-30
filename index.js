@@ -12,12 +12,15 @@ const productsSchema = new mongoose.Schema({
 })
 //create Model  for product
 
-const Product = mongoose.model("Products")
+const Product = mongoose.model("Products",productsSchema);
+
+
+//DB->collections(tables)->document(row)
 
 //connect to mongo db using await
 const connectDB = async ()=>{
     try{
-        await mongoose.connect('mongodb://localhost:27017/users');
+        await mongoose.connect('mongodb://localhost:27017/ProductDB');
         console.log('Database is Connected');
     }catch (e) {
         console.log('Error,DB is not Connected');
